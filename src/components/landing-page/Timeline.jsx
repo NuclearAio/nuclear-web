@@ -1,33 +1,149 @@
-import React from 'react'
+import React from "react";
+import Heading from "../ui/Heading";
 
 const TimeLine = () => {
+  const timeline = [
+    {
+      date: "03 Oct 2022",
+      title: "Pre launch",
+      description: "Pre launch will be open to the public",
+    },
+    {
+      date: "05 Oct 2022",
+      title: "Pre launch closed",
+      description: "",
+    },
+    {
+      date: "15 Nov 2022",
+      title: "Opened only for prebooked users",
+      description: "",
+    },
+    {
+      date: "15 Nov 2022",
+      title: "Alpha release",
+      description: "Alpha release for the user with Shopify module",
+    },
+    {
+      date: "30 Nov 2022",
+      title: "Beta release ",
+      description: "Beta release with bug fix",
+    },
+    {
+      date: "18-24 Dec 2022",
+      title: "Yeezy  module",
+      description: "Yeezy module will be added to the bot  ",
+    },
+    {
+      date: "15-20 Jan 2023",
+      title: "Chat system",
+      description:
+        "In built chat system for Nuclear software will be released for all the bot users.",
+    },
+    {
+      date: "15-20 Feb 2023",
+      title: "Supreeme module",
+      description: "Yeezy module will be added to the bot ",
+    },
+    {
+      date: "15-20 Mar 2023",
+      title: "Footlocker and more Shopify",
+      description: "footlocker will be added with more shopify site ",
+    },
+    {
+      date: "15-20 April 2023",
+      title: "Update you soon",
+      description:
+        "slowly buy surely we will add all the mazor seneaker retail site in owr bot",
+    },
+  ];
   return (
     <div>
+      <section>
+        <div class=" bg-secondary-100 py-8">
+          <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24 ">
+            <div class="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8 md:ml-14">
+              <p class="ml-2 text-secondary uppercase tracking-tighter">
+                Working Process
+              </p>
+              <p class="text-5xl md:text-6xl font-bold mb-2">Launch Timeline</p>
+              <p class="text-sm mb-4">
+                Here’s your guide to the launch and update process Nuclear. Go through all the steps to know the exact
+                process of the launch and update.
+              </p>
+            </div>
+            <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+              <div class="container mx-auto w-full h-full">
+                <div class="relative wrap overflow-hidden p-10 h-full">
+                  <div
+                    class="border-2-2 border-yellow-555 absolute h-full border"
+                    style={{
+                      right: "50%",
+                      border: "2px solid #a6adba",
+                      borderRadius: "1%",
+                    }}
+                  ></div>
+                  <div
+                    class="border-2-2 border-yellow-555 absolute h-full border"
+                    style={{
+                      left: "50%",
+                      border: "2px solid #a6adba",
+                      borderRadius: "1%",
+                    }}
+                  ></div>
 
-<ol class="relative border-l border-gray-200 dark:border-gray-700">                  
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Application UI code in Tailwind CSS</h3>
-        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce &amp; Marketing pages.</p>
-        <a href="#" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Learn more <svg class="ml-2 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></a>
-    </li>
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">March 2022</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Marketing UI design in Figma</h3>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p>
-    </li>
-    <li class="ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">April 2022</time>
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">E-Commerce UI code in Tailwind CSS</h3>
-        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</p>
-    </li>
-</ol>
+                  {timeline.map((item, key) =>
+                    key % 2 === 0 ? (
+                      <div
+                        key={key}
+                        class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"
+                      >
+                        <div class="order-1 w-5/12"></div>
+                        <div class="order-1 w-5/12 px-1 py-4 text-right text-xs">
+                          <p class="mb-3  text-secondary tracking-tighter">
+                            {" "}
+                            {item.date}{" "}
+                          </p>
+                          <h4 class="mb-3 font-bold leading-tight text-lg md:text-2xl tracking-tighter">
+                            {item.title}
+                          </h4>
+                          <p class="text-sm text-opacity-100 tracking-tighter">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        key={key}
+                        class="mb-8 flex justify-between items-center w-full right-timeline"
+                      >
+                        <div class="order-1 w-5/12"></div>
 
+                        <div class="order-1  w-5/12 px-1 py-4">
+                          <p class="mb-3  text-secondary tracking-tighter text-xs">
+                            {item.date}
+                          </p>
+                          <h4 class="mb-3 font-bold  text-lg md:text-2xl text-left tracking-tighter leading-tight">
+                            {item.title}
+                          </h4>
+                          <p class="text-sm  leading-snug  text-opacity-100">
+                            {item.description ? item.description : ""}
+                          </p>
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
+                <img
+                  class="mx-auto -mt-36 md:-mt-36"
+                  src="https://user-images.githubusercontent.com/54521023/116968861-ef21a000-acd2-11eb-95ac-a34b5b490265.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default TimeLine
+export default TimeLine;

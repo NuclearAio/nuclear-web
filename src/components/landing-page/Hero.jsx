@@ -33,7 +33,7 @@ const Hero = () => {
       </div>
     </div>
     <section id="intro">
-      <div className="flex flex-col items-center justify-center shadow mt-16 mx-auto rounded-xl lg:px-10 max-w-7xl border-2  border-primary ">
+      <div className="flex flex-col items-center justify-center shadow mt-16  mx-auto rounded-xl  max-w-7xl border-2  border-primary ">
         <img className="object-cover object-center w-full rounded-xl" alt="" src={botImg}/>
       </div>
     </section>
