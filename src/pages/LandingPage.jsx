@@ -1,9 +1,12 @@
-import React from 'react'
-import botImg from '../bot.png'
+import React, { useState } from 'react'
 import partnerImg from '../assests/images/frittzImg.png'
+import nuclearLogo from '../assests/images/nuclear-logo.png'
 
+import { twitter, discord } from '../socials'
+import JoinDiscordModal from '../components/landing-page/JoinDiscordModal'
+
+import MobileMenu from '../components/landing-page/MobileMenu'
 import Heading from '../components/ui/Heading'
-
 import Hero from '../components/landing-page/Hero'
 import TimeLine from '../components/landing-page/Timeline'
 import Price from '../components/landing-page/Price'
@@ -27,7 +30,7 @@ const LandingPage = () => {
         iconClass : 'ri-line-chart-line'
       },
       {
-        title: 'No Captcha/Advance Captcha Option',
+        title: 'No Captcha/Advance Captcha Support',
         description: "There's no need to waste time completing pointless and annoying captchas. We've got this. Our backend team will take care of all captchas for you.",
         iconClass : 'ri-shield-cross-line'
       },
@@ -40,6 +43,16 @@ const LandingPage = () => {
         title: 'Simplicity',
         description: 'We believe in keeping things simple. Nuclear Bot is designed in such a way that it can be operated by a five-year-old.',
         iconClass : 'ri-mickey-line'
+      },
+      {
+        title: 'Exclusive Discord Community',
+        description: "We believe in our members' success, and we will help them succeed by providing them with an exclusive Discord group.",
+        iconClass: "ri-discord-line"
+      },
+      {
+        title: "Built In Chart App",
+        description: "Get a built-in chat application and access our exclusive community directly from the Nuclear Bot itself.",
+        iconClass: "ri-message-3-line"
       }
     ]
     const faqs = [
@@ -48,43 +61,51 @@ const LandingPage = () => {
         answer: "Nuclear supports both MacOS and Windows."
       },
       {
-        question: "How i participate in pre-launch ?",
-        answer: "In order to enter in pre-launch you need to have invite link provided by out partner."
+        question: "How does I participate in the pre-launch ?",
+        answer: "To participate in the pre-launch, you must have got an invite code from our exclusive partner."
       },
       {
-        question: "What site will you support ?",
-        answer: "We will support all the mazor sites, starting from shopify and we'll release new site module every month, you can se our launch and update timeline timeline section."
+        question: "Which website will you support ?",
+        answer: "We will support all the major sites, starting with Shopify, and we'll release new site modules every month. You can see our launch and update timeline for this."
       },
       {
         question: "Where can I receive support ?",
-        answer: "Members of trickle can recieve support through our discord server, which has many support members ready to answer all questions!"
+        answer: "Nuclear members will get help from our discord server, which will include a large number of support members eager to answer any questions."
       },
       {
         question: "How much is a license and renewal fee ?",
-        answer: "If you purchase a bot through pre-launch than the price is $399 and then it is $59/month."
+        answer: "If you purchase the bot through pre-launch, then the price will be $399 and then $59/month."
+      },
+      {
+        question: "Is there any refund policy ?",
+        answer: "Yes, there is a 14-day refund policy If you don't like the bot for any reason, you can get your pre-booking amount back."
       }
       
     ]
+    const [showMobMenu, setShowMobMenu] = useState(false)
+
+    const handleMobileMenu = () => {
+      return showMobMenu ? setShowMobMenu(false) : setShowMobMenu(true)
+    }
+
   return (
     <div>
 {/* <!-- hero - start --> */}
 <div className="bg-base pb-6 sm:pb-8 lg:pb-12 ">
-  <div className="max-w-screen-xl  px-4 md:px-8 mx-auto">
-    <header className="flex justify-between items-center py-4 md:py-8 mb-8 md:mb-12 xl:mb-16">
+  <div className="max-w-screen-lg  px-4 md:px-8 mx-auto">
+    <header className="flex justify-between items-center py-4  mb-8 md:mb-12 xl:mb-16">
       {/* <!-- logo - start --> */}
-      <a href="/" className="inline-flex items-center text-black-800 text-2xl md:text-3xl font-bold gap-2.5" aria-label="logo">
-        <svg width="95" height="94" viewBox="0 0 95 94" className="w-6 h-auto text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-        </svg>
+      <a href="/" className="inline-flex w-16 h-16 items-center text-black-800 text-2xl md:text-3xl font-bold gap-2.5" aria-label="logo">
+        <img src={nuclearLogo} alt="Nuclear logo"/>
 
-        Flowrift
+        <span className="-ml-4 font-bold text-4xl tracking-tighter md:-mt-2 -mt-1">nuclear</span>
       </a>
       {/* <!-- logo - end --> */}
 
       {/* <!-- nav - start --> */}
-      <nav className="hidden lg:flex gap-10">
-        {menuItems.map((item, keys)=>(
-          <a href="#" className="hover:bg-hover  p-0.5 rounded transition delay-100 ease-in">
+      <nav className="hidden lg:flex gap-8  ml-36 ">
+        {menuItems.map((item, key)=>(
+          <a key={key} href="#" className="hover:bg-hover  p-0.5 rounded transition delay-100 ease-in">
           {item}
         </a>
         ))}
@@ -96,15 +117,20 @@ const LandingPage = () => {
         Dashboard
       </a>
 
-      <button type="button" className="inline-flex items-center lg:hidden bg-primary hover:bg-hover   text-sm  font-semibold rounded-lg gap-2 px-2.5 py-2">
+      <div className='inline-flex items-stretch flex-col '>
+      <button
+      onClick={handleMobileMenu}
+       type="button" className="inline-flex items-center lg:hidden bg-primary hover:bg-hover active:bg-hover  text-sm  font-semibold rounded-lg gap-2 px-2.5 py-2">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
         </svg>
         {/* Menu */}
       </button>
+      {showMobMenu ? <MobileMenu/> : null}
+      </div>
+      
       {/* <!-- buttons - end --> */}
     </header>
-
     <Hero/>
   </div>
 </div>
@@ -138,11 +164,11 @@ const LandingPage = () => {
           <div className="flex justify-center">
             <div className="flex gap-4">
               <a href="https://www.youtube.com/channel/UCn_6itapY2_ckUz9KCUm_qw" target="_blank" className="text-gray-400 hover:text-gray-500 active:text-gray-600 transition duration-100">
-              <i class="ri-youtube-fill ri-xl md:2xl"></i>
+              <i className="ri-youtube-fill ri-xl md:2xl"></i>
               </a>
 
               <a href="https://twitter.com/FritzHeisenb3rg" target="_blank" className=" hover:text-gray-500 active:text-gray-600 transition duration-100">
-              <i class="ri-twitter-fill ri-xl md:2xl"></i>
+              <i className="ri-twitter-fill ri-xl md:2xl"></i>
               </a>
             </div>
           </div>
@@ -218,101 +244,36 @@ const LandingPage = () => {
 </section>
 
 {/* <!-- footer - start --> */}
-<div className="bg-base trackin ">
+<div className="bg-base pt-4 sm:pt-10 lg:pt-12">
   <footer className="max-w-screen-2xl px-4 md:px-8 mx-auto">
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 lg:gap-8 pt-10 lg:pt-12 mb-16">
-      <div className="col-span-full lg:col-span-2">
-        {/* <!-- logo - start --> */}
-        <div className="lg:-mt-2 mb-4">
-          <a href="/" className="inline-flex items-center text-xl md:text-2xl font-bold gap-2" aria-label="logo">
-            <svg width="95" height="94" viewBox="0 0 95 94" className="w-5 h-auto text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-            </svg>
-
-            Nuclear
-          </a>
-        </div>
-        {/* <!-- logo - end --> */}
-
-        <p className="sm:pr-8 mb-6 tracking-tighter">Filler text is dummy text which has no meaning however looks very similar to real text.</p>
-
-        {/* <!-- social - start --> */}
-        <div className="flex gap-4">
-          <a href="#" target="_blank" className="text-gray-400 hover:text-hover active:text-hover transition duration-100 delay-100 ease-in">
-          <i class="ri-twitter-fill ri-xl"></i>
-          </a>
-
-          <a href="#" target="_blank" className="text-gray-400 hover:text-hover active:text-hover transition duration-100 delay-100 ease-in">
-          <i class="ri-discord-fill ri-xl"></i>
-          </a>
-
-        </div>
-        {/* <!-- social - end --> */}
-      </div>
-
+    <div className="flex flex-col md:flex-row justify-between items-center  gap-4 py-6 ">
       {/* <!-- nav - start --> */}
-      <div>
-        <div className=" font-bold tracking-tighter uppercase mb-4">Products</div>
-        <nav className="flex flex-col gap-4">
-          <div>
-            <a  className=" hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in">Nuclear Bot</a>
-          </div>
-        </nav>
-      </div>
+      <nav className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:gap-6">
+        {menuItems.map((item, key)=>(
+        <a key={key} className=" transition  active:text-blue-500 duration-100">{item}</a>
+        ))}
+      </nav>
       {/* <!-- nav - end --> */}
 
-      {/* <!-- nav - start --> */}
-      <div>
-        <div className="font-bold tracking-tighter uppercase mb-4">Company</div>
+      {/* <!-- social - start --> */}
+      <div className="flex gap-4 mt-4">
+        <a href={twitter} target="_blank">
+          <i className="ri-twitter-fill ri-xl"></i>
+        </a>
+        
+        <a href={discord} target="_blank">
+        <i className="ri-discord-fill ri-xl"></i>
+        </a>
 
-        <nav className="flex flex-col gap-4">
-          {menuItems.map((item, key)=>(
-            <div key={key}>
-            <a  className=" hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in tracking-tighter">{item}</a>
-          </div>
-          ))}
-          
-        </nav>
       </div>
-      {/* <!-- nav - end --> */}
-
-      {/* <!-- nav - start --> */}
-      <div>
-        <div className="font-bold tracking-tighter uppercase mb-4">Support</div>
-
-        <nav className="flex flex-col gap-4">
-        <div>
-            <a  className=" hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in tracking-tighter">support@nuclearbot.co</a>
-          </div>
-        </nav>
-      </div>
-      {/* <!-- nav - end --> */}
-
-      {/* <!-- nav - start --> */}
-      <div>
-        <div className="font-bold tracking-tighter uppercase mb-4">Legal</div>
-
-        <nav className="flex flex-col gap-4">
-          <div>
-            <a href="#" className="hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in tracking-tighter">Terms of Service</a>
-          </div>
-
-          <div>
-            <a href="#" className="hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in tracking-tighter">Privacy Policy</a>
-          </div>
-
-          <div>
-            <a href="#" className="hover:text-secondary active:text-secondary transition duration-100 delay-100 ease-in tracking-tighter">Cookie settings</a>
-          </div>
-        </nav>
-      </div>
-      {/* <!-- nav - end --> */}
+      {/* <!-- social - end --> */}
     </div>
 
-    <div className="text-gray-400 text-sm text-center border-t border-gray-800 py-8">© 2021 - Present Nuclear. All rights reserved.</div>
+    <div className=" text-sm text-center py-8 border-t border-gray-700">© 2022 - Present Nuclear. All rights reserved.</div>
   </footer>
 </div>
 {/* <!-- footer - end --> */}
+
     </div>
   )
 }

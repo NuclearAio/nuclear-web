@@ -1,9 +1,15 @@
-import React from 'react'
-import botImg from '../../bot.png'
+import React, { useState } from 'react'
 
-import Heading from '../ui/Heading'
+import JoinDiscordModal from './JoinDiscordModal'
+
+import botImg  from '../../assests/images/bot.png'
+import solidBg from '../../assests/images/solid-bg.jpg'
+
+import { discord } from '../../socials'
 
 const Hero = () => {
+  const [showDiscordModal, setShowDiscordModal] = useState(false)
+  
   return (
     <div>
         <section>
@@ -13,7 +19,7 @@ const Hero = () => {
         <div className="text-center">
         <p className="text-secondary md:text-lg xl:text-xl font-semibold mb-4 md:mb-6 tracking-tighter">Get them before they are gone</p>
           <h1 className="max-w-5xl text-2xl font-bold leading-none tracking-tighter  md:text-5xl lg:text-6xl lg:max-w-7xl">
-            Blazigly fast checkout bot <br className="hidden lg:block"/>
+          Blazingly fast checkout bot <br className="hidden lg:block"/>
             with robust task engine
           </h1>
           <p className="max-w-xl mx-auto mt-8  leading-relaxed tracking-tighter">
@@ -23,10 +29,17 @@ const Hero = () => {
           </p>
           <div className="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
             <div className="mt-3 rounded-lg sm:mt-0">
-              <button className="px-5 py-4  font-semibold text-center text-white transition duration-500 ease-in-out transform ring-secondary bg-secondary lg:px-10 rounded-xl hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-green-500">BOOK NOW</button>
+              <button 
+              onClick={()=>setShowDiscordModal(true)}
+              className="px-5 py-4  font-semibold text-center text-white transition duration-500 ease-in-out transform ring-secondary bg-secondary lg:px-10 rounded-xl hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-green-500">BOOK NOW</button>
             </div>
             <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-              <button className="items-center block px-5 lg:px-10 py-3.5  font-semibold text-center  transition duration-500 ease-in-out transform bg-primary  border-2 border-primary shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-secondary">JOIN DISCORD</button>
+              <button 
+              className="items-center block px-5 lg:px-10 py-3.5  font-semibold text-center  transition duration-500 ease-in-out transform bg-primary  border-2 border-primary shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-secondary">
+                <a href={discord} target="_blank">
+                  JOIN DISCORD
+                </a>
+              </button>
             </div>
           </div>
         </div>
@@ -34,11 +47,12 @@ const Hero = () => {
     </div>
     <section id="intro">
       <div className="flex flex-col items-center justify-center shadow mt-16  mx-auto rounded-xl  max-w-7xl border-2  border-primary ">
-        <img className="object-cover object-center w-full rounded-xl" alt="" src={botImg}/>
+        <img className="object-cover object-center w-full rounded-xl" alt="nuclear img" src={solidBg}/>
       </div>
     </section>
   </div>
 </section>
+{showDiscordModal ? <JoinDiscordModal setShowModal={setShowDiscordModal}/> : null}
     </div>
   )
 }
